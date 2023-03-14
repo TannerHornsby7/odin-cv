@@ -37,7 +37,7 @@ class Display extends Component {
     render () {
         let {name, email, cell, college, degree, major, gpa, company,
              position, start, end } = this.props.content;
-        return (<div className="Display">
+        return (<div className="Display" id="resume">
             <h1>Display</h1>
             <div className="Paper">
                 <div className="Header">
