@@ -1,0 +1,30 @@
+.Display{
+    display: grid;
+    background-color: lightslategray;
+    border-top: 2px solid black;
+    margin-top: 10px;
+    place-content: center;
+}
+
+.Paper {
+    margin: 25px;
+    background-color: white;
+    width: 600px;
+    height: 825px;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+.Header-Bottom {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid black;
+}
+
+.Body {
+    margin-top: -50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}

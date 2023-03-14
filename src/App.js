@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import {Input, Display} from './components/Input';
 import './App.scss';
 import React, { Component } from "react";
@@ -8,10 +8,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: 'name',
-      age: 'age',
-      email: 'email',
-      cell: 'cell',
+      name: 'Name',
+      age: 'Age',
+      email: 'E-Mail',
+      cell: 'Cell',
 
       college: 'College',
       degree: 'Degree',
@@ -26,25 +26,24 @@ class App extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({
-      [e.target.placeholder]: e.target.value //SQUASH ME
-    });
     console.log(e.target.value);
+    this.setState({[e.target.id]: e.target.value});
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    alert('submitted ' + this.state.name);
-    console.log('submitted' + this.state.name);
+    alert('submitted' + this.state.name);
+    
+    console.log('submitted ' + this.state.name);
+
   }
-  
   render (){
     return(
     <div className="App">
-    <Input hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='General' p1={this.state.name} p2={this.state.age} p3='E-Mail' p4='Cell #' />
-    <Input hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='Education' p1='Name' p2='Age' p3='E-Mail' p4='Cell #' />
-    <Input hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='Experience' p1='Name' p2='Age' p3='E-Mail' p4='Cell #' />
-    <Display />
+    <Input state={this.state} hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='General' p1='name' p2='age' p3='email' p4='cell' />
+    <Input state={this.state} hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='Education' p1='college' p2='degree' p3='major' p4='gpa' />
+    <Input state={this.state} hc={this.handleChange.bind(this)} hs={this.handleSubmit.bind(this)}sn='Experience' p1='company' p2='position' p3='start' p4='end' />
+    <Display content={this.state} />
     </div>
   );}
 }
